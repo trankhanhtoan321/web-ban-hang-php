@@ -40,7 +40,7 @@
                 <input type="password" class="form-control" placeholder="Password" required="" name="password" />
               </div>
               <div>
-                <button class="btn btn-default submit" type="submit">Log in</button>
+                <input class="btn btn-default submit" type="submit" name="login" value="Log in" />
               </div>
 
               <div class="clearfix"></div>
@@ -59,19 +59,20 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+            <form action="" method="post">
+              <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" /> 
               <h1>Create Account</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Username" name="user_name" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="email" class="form-control" name="user_email" placeholder="Email" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" name="user_pass" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <input class="btn btn-default submit" type="submit" name="create" value="Submit" />
               </div>
 
               <div class="clearfix"></div>
