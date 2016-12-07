@@ -30,16 +30,17 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form action="" method="post">
+              <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
               <h1>Login</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Username" required="" name="username" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Password" required="" name="password" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
+                <button class="btn btn-default submit" type="submit">Log in</button>
               </div>
 
               <div class="clearfix"></div>
