@@ -11,6 +11,12 @@ class Admin extends CI_Controller
 	}
 	public function index()
 	{
-		
+		$data['content'] = 'admin/home';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function profile_user()
+	{
+		$data['content'] = 'admin/profile_user';
+		$this->load->view('layouts/admin',$data);
 	}
 }

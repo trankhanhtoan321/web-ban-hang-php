@@ -262,6 +262,7 @@ $config['log_file_permissions'] = 0644;
 |
 */
 $config['log_date_format'] = 'd-m-Y H:i:s';
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 /*
 |--------------------------------------------------------------------------

@@ -42,7 +42,7 @@ class Login extends CI_Controller
 			{
 
 				// set session and cookie of login
-				
+				$this->users_model->update_user_lastlogin($userlogin_result['user_id']);
 				$this->session->set_userdata('userlogin',$userlogin_result);
 				redirect('/admin','refresh');
 			}

@@ -49,4 +49,12 @@ class Users_model extends CI_Model
 		if($num > 0) return TRUE;
 		return FALSE;
 	}
+	public function update_user_lastlogin($user_id)
+	{
+		$data = array(
+			'user_lastlogin' => time()
+			);
+		$this->db->where('user_id',$user_id);
+		$this->db->update('users',$data);
+	}
 }
