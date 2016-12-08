@@ -7,10 +7,4 @@ class Password_generate
 	{
 		return md5(sha1(sha1(sha1(sha1(sha1($s))))));
 	}
-	public function verify($pass,$string_encode)
-	{
-		if($string_encode === self::encode($pass))
-			return TRUE;
-		return FALSE;
-	}
 }

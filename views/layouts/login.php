@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -34,10 +34,10 @@
               <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
               <h1>Login</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" name="username" />
+                <input type="text" class="form-control" placeholder="Username" required="" name="user_name" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" name="password" />
+                <input type="password" class="form-control" placeholder="Password" required="" name="user_pass" />
               </div>
               <div>
                 <input class="btn btn-default submit" type="submit" name="login" value="Log in" />

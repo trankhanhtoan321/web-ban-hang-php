@@ -7,7 +7,7 @@ class Admin extends CI_Controller
 	{
 		parent::__construct();
 		if(!$this->session->has_userdata('userlogin'))
-			header('location: /login');
+			redirect('/login','refresh');
 	}
 	public function index()
 	{
