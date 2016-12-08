@@ -7,15 +7,17 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Users_model');
-		$this->load->library('Password_generate');
+		$this->load->library('password_generate');
 	}
 	public function index()
 	{
-		echo $this->Password_generate->encode('123456');
-		// if($this->input->post('create'))
-		// {
-		// 	$this->Users_model->insert($this->input->post('user_name',TRUE),$this->input->post('user_pass',TRUE),$this->input->post('user_email',TRUE));
-		// }
+		if($this->input->post('create'))
+		{
+			if($this->Users_model->insert($this->input->post('user_name',TRUE),$this->password_generate->encode($this->input->post('user_pass',TRUE)),$this->input->post('user_email',TRUE)))
+			{
+				
+			}
+		}
 		$data['csrf'] = array(
 			'name' => $this->security->get_csrf_token_name(),
 			'hash' => $this->security->get_csrf_hash()
