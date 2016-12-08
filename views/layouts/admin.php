@@ -1,4 +1,4 @@
-<?php $profile = $this->session->userdata('userlogin'); ?>
+<?php $userlogin = $this->session->userdata('userlogin'); ?>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -45,11 +45,11 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                	<img src="<?php echo ($profile['user_image']!=NULL?$profile['user_image']:'/uploads/icons/user.png'); ?>" class="img-circle profile_img">
+                	<img src="<?= ($userlogin['user_image']!=NULL?$userlogin['user_image']:'/uploads/icons/user.png'); ?>" class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2><?= $userlogin['user_name']; ?><br/><?= $userlogin['user_fullname']; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -76,7 +76,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?php echo ($profile['user_image']!=NULL?$profile['user_image']:'/uploads/icons/user.png'); ?>">John Doe
+                    <img src="<?= ($userlogin['user_image']!=NULL?$userlogin['user_image']:'/uploads/icons/user.png'); ?>"><?= $userlogin['user_name']; ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -101,7 +101,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
   			<div class="">
-        		<?php $this->load->view($content); ?>
+        		<?php $this->load->view($_content); ?>
         	</div>
 		</div>
         <!-- /page content -->

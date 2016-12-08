@@ -14,35 +14,33 @@
 				<form enctype="multipart/form-data" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
 					<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
 					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="user_fullname">
-							Full Name:<span class="required">*</span>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="old_password">
+							Old Password:<span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="text" id="user_fullname" class="form-control col-md-7 col-xs-12" name="user_fullname" value="<?= $userlogin['user_fullname']; ?>" required="required" />
+							<input type="password" id="old_password" class="form-control col-md-7 col-xs-12" name="old_password" required="required" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="user_name">
-							User Name:<span class="required">*</span>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="new_password">
+							New Password:<span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="text" id="user_name" class="form-control col-md-7 col-xs-12" name="user_name" required="required" value="<?= $userlogin['user_name']; ?>" />
+							<input type="password" id="new_password" class="form-control col-md-7 col-xs-12" name="new_password" required="required" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="user_image">
-							User Avatar:
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="old_password">
+							Password Again:<span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="file" id="user_image" class="form-control col-md-7 col-xs-12" name="user_image" />
-							<br/><br/>
-							<img src="<?= $userlogin['user_image']; ?>" class="img-responsive img-thumbnail" />
+							<input data-validate-linked="new_password" type="password" id="old_password" class="form-control col-md-7 col-xs-12" name="old_password" required="required" />
 						</div>
 					</div>
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-							<input type="submit" class="btn btn-success" name="update_profile" value="Update" />
+							<input type="submit" class="btn btn-success" name="update_profile" value="Change Password" />
 						</div>
 					</div>
 				</form>

@@ -55,6 +55,34 @@ class Users_model extends CI_Model
 			'user_lastlogin' => time()
 			);
 		$this->db->where('user_id',$user_id);
-		$this->db->update('users',$data);
+		if($this->db->update('users',$data))
+			return TRUE;
+		return FALSE;
+	}
+	public function update_profile($user_id,$user_fullname,$user_name,$user_image)
+	{
+		$data = array(
+			'user_name' => $user_name,
+			'user_fullname' => $user_fullname
+			);
+		if($user_image != '') $data['user_image'] = $user_image;
+		$this->db->where('user_id',$user_id);
+		if($this->db->update('users',$data))
+			return TRUE;
+		return FALSE;
+	}
+	public function get_info($user_id)
+	{
+		$this->db->from('users');
+		$this->db->where('user_id',$user_id);
+		if($this->db->count_all_results() == 1)
+		{
+			$this->db->select('*');
+			$this->db->from('users');
+			$this->db->where('user_id',$user_id);
+			$results = $this->db->get()->result_array();
+			return $results[0];
+		}
+		return FALSE;
 	}
 }
