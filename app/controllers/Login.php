@@ -13,23 +13,23 @@ class Login extends CI_Controller
 
 		// sign up
 
-		if($this->input->post('create'))
-		{
-			$user_name = $this->input->post('user_name',TRUE);
-			$user_pass = $this->input->post('user_pass',TRUE);
-			$user_email = $this->input->post('user_email',TRUE);
+		// if($this->input->post('create'))
+		// {
+		// 	$user_name = $this->input->post('user_name',TRUE);
+		// 	$user_pass = $this->input->post('user_pass',TRUE);
+		// 	$user_email = $this->input->post('user_email',TRUE);
 
-			if($this->users_model->insert($user_name,$user_pass,$user_email))
-			{
-				$alert['alert']="Sign up success! You can log in now!";
-				$this->load->view('alert/success',$alert);
-			}
-			else
-			{
-				$alert['alert']="Sign up error! user name already exists!";
-				$this->load->view('alert/error',$alert);
-			}
-		}
+		// 	if($this->users_model->insert($user_name,$user_pass,$user_email))
+		// 	{
+		// 		$alert['alert']="Sign up success! You can log in now!";
+		// 		$this->load->view('alert/success',$alert);
+		// 	}
+		// 	else
+		// 	{
+		// 		$alert['alert']="Sign up error! user name already exists!";
+		// 		$this->load->view('alert/error',$alert);
+		// 	}
+		// }
 
 		// log in
 

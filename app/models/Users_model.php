@@ -59,11 +59,12 @@ class Users_model extends CI_Model
 			return TRUE;
 		return FALSE;
 	}
-	public function update_profile($user_id,$user_fullname,$user_name,$user_image)
+	public function update_profile($user_id,$user_fullname,$user_name,$user_email,$user_image)
 	{
 		$data = array(
 			'user_name' => $user_name,
-			'user_fullname' => $user_fullname
+			'user_fullname' => $user_fullname,
+			'user_email' => $user_email
 			);
 		if($user_image != '') $data['user_image'] = $user_image;
 		$this->db->where('user_id',$user_id);
@@ -82,6 +83,21 @@ class Users_model extends CI_Model
 			$this->db->where('user_id',$user_id);
 			$results = $this->db->get()->result_array();
 			return $results[0];
+		}
+		return FALSE;
+	}
+	public function change_password($user_id,$old_pass,$new_pass)
+	{
+		$data = self::get_info($user_id);
+		if(!$data) return FALSE;
+		if($this->password_generate->encode($old_pass) == $data['user_pass'])
+		{
+			$data = array(
+				'user_pass' => $this->password_generate->encode($new_pass)
+				);
+			$this->db->where('user_id',$user_id);
+			if($this->db->update('users',$data)) return TRUE;
+			return FALSE;
 		}
 		return FALSE;
 	}
