@@ -36,8 +36,8 @@ function CheckAuthentication()
 
 // LicenseKey : Paste your license key here. If left blank, CKFinder will be
 // fully functional, in demo mode.
-$config['LicenseName'] = $_SERVER['HTTP_HOST'];
-$config['LicenseKey'] = '';
+$config['LicenseName'] = 'TKT';
+$config['LicenseKey'] = 'AXFATV71BV9FRQLWVL9SHPPU6GFMAEVU';
 
 /*
  Uncomment lines below to enable PHP error reporting and displaying PHP errors.

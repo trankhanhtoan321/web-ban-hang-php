@@ -13,7 +13,7 @@ $userlogin = $this->session->userdata('userlogin');
 			<div class="x_content">
 				<form action="" method="post" class="form-horizontal form-label-left">
 					<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
-					<div class="item form-group">
+					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="old_password">
 							Old Password:<span class="required">*</span>
 						</label>
@@ -21,7 +21,7 @@ $userlogin = $this->session->userdata('userlogin');
 							<input type="text" id="old_password" class="form-control col-md-7 col-xs-12" name="old_password" required="required" />
 						</div>
 					</div>
-					<div class="item form-group">
+					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="new_password">
 							New Password:<span class="required">*</span>
 						</label>
@@ -30,7 +30,7 @@ $userlogin = $this->session->userdata('userlogin');
 						</div>
 					</div>
 					<div class="ln_solid"></div>
-					<div class="item form-group">
+					<div class="form-group">
 						<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 							<input type="submit" class="btn btn-success" name="change_password" value="Change Password" />
 						</div>
