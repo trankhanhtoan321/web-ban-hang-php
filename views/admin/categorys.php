@@ -139,7 +139,11 @@ function dequycategory($categorys,$num=0)
 <script>
    $(".tktdelete").click(function(){
       $.ajax({
+<<<<<<< HEAD
          url : '/admin/ajax_delete_category',
+=======
+         url : '/ajax/delete_category.php',
+>>>>>>> origin/master
          type : 'post',
          data :{
             cat_id : $(this).attr("data")
