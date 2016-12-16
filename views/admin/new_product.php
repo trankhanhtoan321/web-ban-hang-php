@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 function dequycategory($categorys,$num=0)
 {
-	echo '<ul>';
+	echo '<ul style="list-style-type:none;">';
 	foreach($categorys as $cat)
 	{
 		if($cat['cat_parent_id'] == $num)
 		{
-			echo "<li class='cat_tkt_list'><label class='control-label'><input name='pro_cat_ids[]' type='checkbox' class='flat' value='".$cat['cat_id']."' />".$cat['cat_name']."</label>";
+			echo "<li><label class='control-label'><input name='pro_cat_ids[]' type='checkbox' class='flat' value='".$cat['cat_id']."' /> ".$cat['cat_name']."</label>";
 			dequycategory($categorys,$cat['cat_id']);
 			echo "<li>";
 		}
@@ -123,7 +123,7 @@ function dequycategory($categorys,$num=0)
 				</div>
 				<div class="x_content">
 					<div class="form-group">
-						<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-1">
 							<?php dequycategory($categorys); ?>
 						</div>
 					</div>
@@ -199,8 +199,3 @@ function dequycategory($categorys,$num=0)
 	</div>
 
 </form>
-<script>
-	$(document).ready(function(){
-		alert($("ul").text());
-	});
-</script>
