@@ -186,8 +186,4 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/update_category';
 		$this->load->view('layouts/admin',$data);
 	}
-	public function ajax_delete_category()
-	{
-		die(json_encode("value"));
-	}
 }
