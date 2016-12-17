@@ -26,4 +26,9 @@ class Products_model extends CI_Model
 		if($this->db->insert('products',$data)) return TRUE;
 		return FALSE;
 	}
+	public function get_all()
+	{
+		$result = $this->db->get('products');
+		return $result->result_array();
+	}
 }

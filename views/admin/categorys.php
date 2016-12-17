@@ -22,7 +22,6 @@ function dequycategory($categorys,$num=0)
       <h3>Categorys</h3>
    </div>
 </div>
-<div id="tktalert"></div>
 <div class="row">
    <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
@@ -121,7 +120,6 @@ function dequycategory($categorys,$num=0)
                            </div>
                            <!-- /mdoal -->
                            <a href="/admin/update_category/<?= $cat['cat_id']; ?>" class="btn btn-warning"><span class="fa fa-edit"></span></a>
-                           <button type="button" class="tktdelete btn btn-danger" data="<?= $cat['cat_id']; ?>"><span class="fa fa-trash"></span></button>
                         </td>
                      </tr> 
                      <?php } ?>
@@ -136,22 +134,3 @@ function dequycategory($categorys,$num=0)
       </div>
    </div>
 </div>
-<script>
-   $(".tktdelete").click(function(){
-      $.ajax({
-<<<<<<< HEAD
-         url : '/admin/ajax_delete_category',
-=======
-         url : '/ajax/delete_category.php',
->>>>>>> origin/master
-         type : 'post',
-         data :{
-            cat_id : $(this).attr("data")
-         },
-         dataType : 'json',
-         success : function(result){
-            alert(123);
-         }
-      });
-   });
-</script>

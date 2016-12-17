@@ -14,6 +14,7 @@
         <li><a href="/admin/new_product">New Product</a></li>
         <li><a href="/admin/add_product_category">New Category</a></li>
         <li><a href="/admin/categorys">Categorys</a></li>
+        <li><a href="/admin/products">Products</a></li>
       </ul>
     </li>
     <li><a><i class="fa fa-user"></i>User <span class="fa fa-chevron-down"></span></a>

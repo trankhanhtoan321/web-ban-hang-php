@@ -112,9 +112,62 @@ class Admin extends CI_Controller
 		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
 		$this->load->view('layouts/admin',$data);
 	}
+	public function products()
+	{
+		if($this->input->post('delete_records'))
+		{
+			if($this->products_model->delete($this->input->post('table_records',TRUE)))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		$data['_content'] = 'admin/products';
+		$data['_varibles']['products'] = $this->products_model->get_all();
+		$this->load->view('layouts/admin',$data);
+	}
 	public function new_product()
 	{
 		if($this->input->post('new_product'))
+		{
+			$pro_name = $this->input->post('pro_name',TRUE);
+			$pro_description = $this->input->post('pro_description');
+			$pro_shortdescripttion = $this->input->post('pro_shortdescripttion');
+			$pro_seo_title = $this->input->post('pro_seo_title',TRUE);
+			$pro_seo_description = $this->input->post('pro_seo_description',TRUE);
+			$pro_seo_keyword = $this->input->post('pro_seo_keyword',TRUE);
+			$pro_price = $this->input->post('pro_price',TRUE);
+			$pro_price_sale = 0;
+			$pro_price_sale_date_begin = 0;
+			$pro_price_sale_date_finish = 0;
+			if($this->input->post('use_sale_price') == 1)
+			{
+				$pro_price_sale = $this->input->post('pro_price_sale',TRUE);
+				$pro_date_sale = $this->input->post('pro_date_sale',TRUE);
+				$timetkt = explode("-", $pro_date_sale);
+				$pro_price_sale_date_begin = strtotime($timetkt[0]);
+				$pro_price_sale_date_finish = strtotime($timetkt[1]);
+			}
+			$pro_image = '';
+			if($_FILES['pro_image']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('pro_image'))
+					$pro_image='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			$pro_cat_ids = json_encode($this->input->post('pro_cat_ids',TRUE));
+			if($this->products_model->insert($pro_name,$pro_description,$pro_shortdescripttion,$pro_seo_title,$pro_seo_description,$pro_seo_keyword,$pro_price,$pro_price_sale,$pro_price_sale_date_begin,$pro_price_sale_date_finish,$pro_image,$pro_cat_ids))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
+		$data['_content'] = 'admin/new_product';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function update_product($pro_id=0)
+	{
+		if($pro_id == 0) redirect('/admin/products','refresh');
+		if($this->input->post('update_product'))
 		{
 			$pro_name = $this->input->post('pro_name',TRUE);
 			$pro_description = $this->input->post('pro_description');
@@ -186,11 +239,4 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/update_category';
 		$this->load->view('layouts/admin',$data);
 	}
-<<<<<<< HEAD
-=======
-	public function ajax_delete_category()
-	{
-		die(json_encode("value"));
-	}
->>>>>>> origin/master
 }
