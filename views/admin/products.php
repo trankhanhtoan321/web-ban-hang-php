@@ -25,8 +25,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      <tr>
                         <th>#</th>
                         <th>ID</th>
-                        <th>Image</th>
+                        <th>SKU</th>
                         <th>Name</th>
+                        <th>Image</th>
                         <th>Short Description</th>
                         <th>Price (VND)</th>
                         <th>Price Sale (VND)</th>
@@ -40,8 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      <tr>
                         <td><input type="checkbox" class="flat" name="table_records[]" value="<?= $pro['pro_id']; ?>"></td>
                         <td><?= $pro['pro_id']; ?></td>
-                        <td><img style="width:50px" src="<?= $pro['pro_image']; ?>" /></td>
+                        <td><?= $pro['pro_sku']; ?></td>
                         <td><b><?= $pro['pro_name']; ?></b></td>
+                        <td><img style="width:50px" src="<?= $pro['pro_image']; ?>" /></td>
                         <td><?= $pro['pro_shortdescripttion']; ?></td>
                         <td><?= number_format($pro['pro_price']); ?></td>
                         <td><?= $pro['pro_price_sale']!=0?number_format($pro['pro_price_sale']):'<i>NULL</i>' ?></td>
@@ -92,10 +94,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                </table>
                <div class="ln_solid"></div>
                <div class="form-group">
-                  <input type="submit" class="btn btn-danger" name="delete_records" value="Delete" />
+                  <input type="submit" id="delete_button" class="btn btn-danger" name="delete_records" value="Delete" />
                </div>
             </form>
          </div>
       </div>
    </div>
 </div>
+
+<script>
+   $("#delete_button").click(function(){
+      if(confirm("Are you sure to delete?")) return true;
+      return false;
+   });
+</script>

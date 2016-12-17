@@ -107,9 +107,7 @@ function dequycategory($categorys,$num=0)
                                           <b>keyword:</b><?= $cat['cat_seo_keyword']; ?><br/>
                                           <b>description:</b><?= $cat['cat_seo_description']; ?>
                                           <div class="ln_solid"></div>
-                                          <b>Category Image:</b><br/><img style="width:100px" src="<?= $cat['cat_image']; ?>" /><br/>
-                                          <b>Category Description:</b><br/>
-                                          <?= $cat['cat_description']; ?>
+                                          <b>Category Image:</b><br/><img style="width:100px" src="<?= $cat['cat_image']; ?>" />
                                        </p>
                                     </div>
                                     <div class="modal-footer">
@@ -127,10 +125,17 @@ function dequycategory($categorys,$num=0)
                </table>
                <div class="ln_solid"></div>
                <div class="form-group">
-                  <input type="submit" class="btn btn-danger" name="delete_records" value="Delete" />
+                  <input type="submit" id="delete_button" class="btn btn-danger" name="delete_records" value="Delete" />
                </div>
             </form>
          </div>
       </div>
    </div>
 </div>
+
+<script>
+   $("#delete_button").click(function(){
+      if(confirm("Are you sure to delete?")) return true;
+      return false;
+   });
+</script>

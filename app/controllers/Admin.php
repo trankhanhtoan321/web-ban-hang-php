@@ -129,6 +129,7 @@ class Admin extends CI_Controller
 		if($this->input->post('new_product'))
 		{
 			$pro_name = $this->input->post('pro_name',TRUE);
+			$pro_sku = $this->input->post('pro_sku',TRUE);
 			$pro_description = $this->input->post('pro_description');
 			$pro_shortdescripttion = $this->input->post('pro_shortdescripttion');
 			$pro_seo_title = $this->input->post('pro_seo_title',TRUE);
@@ -156,7 +157,7 @@ class Admin extends CI_Controller
 					$pro_image='/'.$config['upload_path'].$this->upload->data('file_name');
 			}
 			$pro_cat_ids = json_encode($this->input->post('pro_cat_ids',TRUE));
-			if($this->products_model->insert($pro_name,$pro_description,$pro_shortdescripttion,$pro_seo_title,$pro_seo_description,$pro_seo_keyword,$pro_price,$pro_price_sale,$pro_price_sale_date_begin,$pro_price_sale_date_finish,$pro_image,$pro_cat_ids))
+			if($this->products_model->insert($pro_sku,$pro_name,$pro_description,$pro_shortdescripttion,$pro_seo_title,$pro_seo_description,$pro_seo_keyword,$pro_price,$pro_price_sale,$pro_price_sale_date_begin,$pro_price_sale_date_finish,$pro_image,$pro_cat_ids))
 				$data['_alert'] = 'alert/success';
 			else $data['_alert'] = 'alert/error';
 		}
@@ -170,6 +171,7 @@ class Admin extends CI_Controller
 		if($this->input->post('update_product'))
 		{
 			$pro_name = $this->input->post('pro_name',TRUE);
+			$pro_sku = $this->input->post('pro_sku',TRUE);
 			$pro_description = $this->input->post('pro_description');
 			$pro_shortdescripttion = $this->input->post('pro_shortdescripttion');
 			$pro_seo_title = $this->input->post('pro_seo_title',TRUE);
@@ -197,12 +199,13 @@ class Admin extends CI_Controller
 					$pro_image='/'.$config['upload_path'].$this->upload->data('file_name');
 			}
 			$pro_cat_ids = json_encode($this->input->post('pro_cat_ids',TRUE));
-			if($this->products_model->insert($pro_name,$pro_description,$pro_shortdescripttion,$pro_seo_title,$pro_seo_description,$pro_seo_keyword,$pro_price,$pro_price_sale,$pro_price_sale_date_begin,$pro_price_sale_date_finish,$pro_image,$pro_cat_ids))
+			if($this->products_model->update($pro_id,$pro_sku,$pro_name,$pro_description,$pro_shortdescripttion,$pro_seo_title,$pro_seo_description,$pro_seo_keyword,$pro_price,$pro_price_sale,$pro_price_sale_date_begin,$pro_price_sale_date_finish,$pro_image,$pro_cat_ids))
 				$data['_alert'] = 'alert/success';
 			else $data['_alert'] = 'alert/error';
 		}
+		$data['_varibles']['product'] = $this->products_model->get($pro_id);
 		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
-		$data['_content'] = 'admin/new_product';
+		$data['_content'] = 'admin/update_product';
 		$this->load->view('layouts/admin',$data);
 	}
 	public function update_category($cat_id = 0)

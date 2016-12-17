@@ -32,6 +32,14 @@ function dequycategory($categorys,$num=0)
 				</div>
 				<div class="x_content">
 					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="pro_sku">
+							sku:
+						</label>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+							<input type="text" id="pro_sku" class="form-control col-md-7 col-xs-12" name="pro_sku" />
+						</div>
+					</div>
+					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="pro_name">
 							Name:<span class="required">*</span>
 						</label>
@@ -90,7 +98,7 @@ function dequycategory($categorys,$num=0)
 									</div>
 								</div>
 							</fieldset>
-							<small><i>(Select date of sale price if has sale price)</i></small>
+							<small><i>(Select date of sale price if has sale price, format: mm/dd/yyyy hh:mm am/pm)</i></small>
 						</div>
 					</div>
 				</div>
