@@ -12,14 +12,26 @@ class Admin extends CI_Controller
 		$this->load->model('users_model');
 		$this->load->model('categorys_model');
 		$this->load->model('products_model');
+		$this->load->model('setting_model');
 		$this->userlogin = $this->session->userdata('userlogin');
 	}
+
+	/********************************************************************
+	*
+	* 
+	*/
 	public function index()
 	{
 		$data['_varibles'] = NULL;
 		$data['_content'] = 'admin/home';
 		$this->load->view('layouts/admin',$data);
 	}
+
+	/**********************************************************************
+	*
+	*cap nhat thong tin user
+	*function id 1
+	*/
 	public function profile_user()
 	{
 		if($this->input->post('update_profile'))
@@ -54,6 +66,11 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/profile_user';
 		$this->load->view('layouts/admin',$data);
 	}
+
+	/*
+	* thay doi mat khau
+	* function id 2
+	*/
 	public function change_password()
 	{
 		if($this->input->post('change_password'))
@@ -68,6 +85,10 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/change_password';
 		$this->load->view('layouts/admin',$data);
 	}
+
+	/*
+	* them moi danh muc
+	*/
 	public function add_product_category()
 	{
 		if($this->input->post('add_product_category'))
@@ -100,6 +121,10 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/add_product_category';
 		$this->load->view('layouts/admin',$data);
 	}
+
+	/*
+	* quan ly category
+	*/
 	public function categorys()
 	{
 		if($this->input->post('delete_records'))
@@ -112,6 +137,7 @@ class Admin extends CI_Controller
 		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
 		$this->load->view('layouts/admin',$data);
 	}
+
 	public function products()
 	{
 		if($this->input->post('delete_records'))
@@ -124,6 +150,7 @@ class Admin extends CI_Controller
 		$data['_varibles']['products'] = $this->products_model->get_all();
 		$this->load->view('layouts/admin',$data);
 	}
+
 	public function new_product()
 	{
 		if($this->input->post('new_product'))
@@ -165,6 +192,7 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/new_product';
 		$this->load->view('layouts/admin',$data);
 	}
+
 	public function update_product($pro_id=0)
 	{
 		if($pro_id == 0) redirect('/admin/products','refresh');
@@ -208,6 +236,7 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/update_product';
 		$this->load->view('layouts/admin',$data);
 	}
+	
 	public function update_category($cat_id = 0)
 	{
 		if($cat_id == 0) redirect('/admin/categorys','refresh');
@@ -240,6 +269,21 @@ class Admin extends CI_Controller
 		$data['_varibles']['category'] = $this->categorys_model->get($cat_id);
 		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
 		$data['_content'] = 'admin/update_category';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function general_setting()
+	{
+		if($this->input->post('save_setting'))
+		{
+			$set_pagetitle = $this->input->post('set_pagetitle',TRUE);
+			$set_pagedescriptiton = $this->input->post('set_pagedescriptiton',TRUE);
+			$set_pagekeyword = $this->input->post('set_pagekeyword',TRUE);
+			if($this->setting_model->update($set_pagetitle,$set_pagedescriptiton,$set_pagekeyword))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		$data['_varibles'] = NULL;
+		$data['_content'] = 'admin/general_setting';
 		$this->load->view('layouts/admin',$data);
 	}
 }

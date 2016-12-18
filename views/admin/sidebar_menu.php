@@ -23,5 +23,10 @@
         <li><a href="/admin/change_password">Change Password</a></li>
       </ul>
     </li>
+    <li><a><i class="fa fa-cogs"></i>Setting <span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="/admin/general_setting">General</a></li>
+      </ul>
+    </li>
   </ul>
 </div>
