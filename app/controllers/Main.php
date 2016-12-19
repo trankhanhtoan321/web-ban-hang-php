@@ -2,24 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('setting_model');
+		$this->load->model('categorys_model');
+		$this->load->model('products_model');
+	}
 	public function index()
 	{
-		$this->load->view('layouts/site');
+		$data['_varibles']['SEO_title'] = $this->setting_model->get('set_pagetitle');
+		$data['_varibles']['SEO_keywords'] = $this->setting_model->get('set_pagekeyword');
+		$data['_varibles']['SEO_description'] = $this->setting_model->get('set_pagedescriptiton');
+		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
+		$data['_varibles']['products'] = $this->products_model->get_all();
+		$data['_content'] = 'site/home';
+		$this->load->view('layouts/site',$data);
 	}
 }

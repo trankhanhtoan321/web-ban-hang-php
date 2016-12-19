@@ -177,7 +177,7 @@ class Admin extends CI_Controller
 			$pro_image = '';
 			if($_FILES['pro_image']['name'] != NULL)
 			{
-				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['upload_path'] = 'uploads/images/products/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('pro_image'))
@@ -220,7 +220,7 @@ class Admin extends CI_Controller
 			$pro_image = '';
 			if($_FILES['pro_image']['name'] != NULL)
 			{
-				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['upload_path'] = 'uploads/images/products/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('pro_image'))
@@ -278,7 +278,20 @@ class Admin extends CI_Controller
 			$set_pagetitle = $this->input->post('set_pagetitle',TRUE);
 			$set_pagedescriptiton = $this->input->post('set_pagedescriptiton',TRUE);
 			$set_pagekeyword = $this->input->post('set_pagekeyword',TRUE);
-			if($this->setting_model->update($set_pagetitle,$set_pagedescriptiton,$set_pagekeyword))
+			$author = $this->input->post('author',TRUE);
+			$address = $this->input->post('address',TRUE);
+			$phone = $this->input->post('phone',TRUE);
+			$email = $this->input->post('email',TRUE);
+			$logo = '';
+			if($_FILES['logo']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('logo'))
+					$logo='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			if($this->setting_model->update($set_pagetitle,$set_pagedescriptiton,$set_pagekeyword,$logo,$author,$address,$phone,$email))
 				$data['_alert'] = 'alert/success';
 			else $data['_alert'] = 'alert/error';
 		}

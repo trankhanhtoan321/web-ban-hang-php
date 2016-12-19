@@ -1,0 +1,84 @@
+.option13 a:hover {
+   color: #ffae00;
+}
+.option13 .owl-controls .owl-prev, 
+.option13 .owl-controls .owl-next{
+	width: 25px;
+	height: 25px;
+	webkit-border-radius: 90%;
+    -moz-border-radius: 90%;
+    -ms-border-radius: 90%;
+    -o-border-radius: 90%;
+    border-radius: 90%;
+    background-color: #fff;
+    border: 1px solid #eee;
+    line-height: 23px;
+    font-size: 13px;
+}
+.option13 .owl-controls .owl-prev:hover, 
+.option13 .owl-controls .owl-next:hover{
+	background-color: #ffae00;
+	border-color: #ffae00;
+	color: #fff;
+}
+.option13 .owl-controls .owl-prev .fa:before{
+	content: "\f0d9";
+} 
+.option13 .owl-controls .owl-next .fa:before{
+    content: "\f0da";
+}
+.option13 .product-style3 .group-button-control a:hover,
+.option13 .product-style3 .btn-add-to-cart:hover{
+	background-color: #ffae00;
+	color: #fff;
+}
+.option13 .product-style3 .price{
+	color: #333;
+	font-weight: 700;
+}
+.option13 .block-hotdeal-week{
+	margin-top: 30px;
+}
+.option13 .block-hotdeal-week .title,
+.option13 .block-new-product12 .title{
+	font-family: 'Montserrat';
+	font-weight: 700;
+}
+
+.option13 .block-hotdeal-week .countdown-lastest .box-count .number{
+	background-color: #333;
+}
+.option13 .block-hotdeal-week .countdown-lastest .box-count .text{
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.option13 .block-hotdeal-week .btn-add-to-cart{
+	background-color: #ffae00;
+	color: #fff;
+}
+.option13 .block-hotdeal-week .btn-add-to-cart:hover, 
+.option13 .block-hotdeal-week .wishlist:hover, 
+.option13 .block-hotdeal-week .compare:hover{
+	background-color: #ffae00;
+}
+.option13 .scroll_top:hover{
+	background-color: #ffae00;
+}
+.option13 .block-new-product12 .price{
+	color: #333;
+	font-weight: 700;
+}
+.option13 .footer4 .mailchimp-form .mailchimp-submit{
+	background-color: #ffae00;
+}
+.option13 .block-group-banner2{
+	margin-top: 30px;
+}
+.option13 #main-menu .dropdown-menu .block-container .group_header>a,
+.option13 .vertical-dropdown-menu .mega-group-header span{
+	border-color: #ffae00;
+}
+.option13 .cart-block .cart-block-content .product-info .p-right .p-rice,
+.option13 .vertical-dropdown-menu .mega-products .mega-product .product-price .new-price{
+	color: #333;
+}

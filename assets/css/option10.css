@@ -1,0 +1,608 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Header
+2. Main menu
+1. Header
+2. Main menu
+3. Mini cart
+4. Form search
+5. Service style 3
+6. Footer style 3
+7. Section background
+8. Styles for devices(>1200px)
+9. Styles for devices(>=992px and <=1199px)
+10. Styles for devices(>=768px and <=992px)
+11. Styles for devices(>=481px and <=767px)
+12. Styles for devices(<=480px)
+
+-------------------------------------------------------------------*/
+
+.option10 .scroll_top:hover{
+	background: #ffd68f;
+}
+.option10 a:hover{
+	color: #ffd68f;
+}
+.option10{
+	font-family: 'Montserrat', sans-serif;
+}
+.option10 #main-menu .dropdown-menu .block-container .group_header>a{
+	border-color: #ffd68f;
+}
+/*-------------------
+[1. Header ]
+-------------------*/
+.option10 .header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+}
+
+.option10 .main-header{
+	padding: 40px 0 0 0;
+}
+/*-------------------
+[2. Main menu ]
+-------------------*/
+.option10 #main-menu .navbar{
+	position: static;
+}
+.option10 #main-menu .dropdown-menu.mega_dropdown{
+	left: 0;
+}
+.option10 #main-menu{
+	float: right;
+	margin-top: 40px;
+}
+.option10 #main-menu .navbar .navbar-nav>li:hover>a, 
+.option10 #main-menu .navbar .navbar-nav>li.active>a{
+	background:none;
+	color:#ffd68f; 
+}
+.option10 #main-menu .navbar .navbar-nav>li:hover, 
+.option10 #main-menu .navbar .navbar-nav>li.active{
+	background: none;
+}
+
+.option10 #main-menu .navbar .navbar-nav>li>a{
+	border:none;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 0 15px;
+	font-weight: 700;
+}
+.option10 #main-menu .navbar .navbar-nav>li>a:after{
+	content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #ffd68f;
+    margin: 3px auto 0;
+    display: none;
+}
+.option10 #main-menu .navbar .navbar-nav>li:hover a:after, 
+.option10 #main-menu .navbar .navbar-nav>li.active a:after{
+	display: block;
+}
+/*-------------------
+[3. Mini cart ]
+-------------------*/
+.option10 .mini-cart{
+	width: auto;
+	display: inline-block;
+	float: right;
+	position: relative;
+	margin-top: 45px;
+}
+.option10 .mini-cart .icon{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	background-color: rgba(255,255,255,0.2);
+	background-image: url("../images/icon-cart10.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: relative;
+	webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+.option10 .mini-cart .icon .count{
+	position: absolute;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    color: #fff;
+    background-color: #ffd68f;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 50%;
+    right: -5px;
+}
+.option10 .mini-cart:hover .cart-block{
+	webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    opacity: 1;
+    visibility: visible;
+}
+.option10 .cart-block .cart-block-content .cart-buttons a.btn-check-out{
+	background-color:#ffd68f; 
+}
+/*-------------------
+[4. Form search ]
+-------------------*/
+.option10 .form-search{
+	width: auto;
+	display: inline-block;
+	float: right;
+	padding-left: 20px;
+	margin-top: 45px;
+	position: relative;
+	padding-right: 15px;
+}
+.option10 .form-search .icon{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+	text-align: center;
+	line-height: 32px;
+	cursor: pointer;
+	webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+
+}
+.option10 .form-search .form-search-inner{
+	position: absolute;
+	right: 10px;
+	top: -3px;
+    z-index: 10;
+    min-width: 460px;
+    display: none;
+}
+.option10 .form-search  .form-inline{
+	background: #fff;
+	padding: 8px 0;
+	width: 100%;
+	padding-left:25px;
+	webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-ms-border-radius: 20px;
+	-o-border-radius: 20px;
+	border-radius: 20px;
+	display: table;
+}
+.option10 .form-search .form-category{
+	border-right: 1px solid #cccccc;
+	display: table-cell;
+	width: 30%;
+}
+.option10 .form-search .select2-container{
+	font-size: 10px;
+	width: 100%!important;
+}
+.option10 .form-search .select2-container .select2-selection--single{
+	height: 24px;
+}
+.option10 .form-search .select2-container--default .select2-selection--single{
+	border: none;
+	webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+}
+.option10 .form-search .select2-container--default .select2-selection--single .select2-selection__rendered{
+	line-height: 24px;
+    padding: 0;
+    font-size: 12px;
+    padding-top: 1px;
+}
+.option10 .form-search .select2-container--default .select2-selection--single .select2-selection__arrow{
+	top: 0;
+	width: 8px;
+	right: 10px;
+}
+.option10 .form-search .select2-container--default .select2-selection--single .select2-selection__arrow b{
+	border: none;
+	margin: 0;
+	padding: 0;
+	top: inherit;
+}
+.option10 .form-search .select2-container--default .select2-selection--single .select2-selection__arrow b:before{
+	font-family: 'FontAwesome';
+	content: "\f107";
+	line-height: 24px;
+}
+.option10 .form-search .input-serach{
+	font-size: 12px;
+	display: table-cell;
+	width: 100%;
+}
+.option10 .form-search .input-serach input{
+	padding-left: 10px;
+	padding-right: 40px;
+	width: 100%;
+}
+.option10 .form-search .btn-search{
+	width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-color: #333333;
+    color: #fff;
+    text-align: center;
+    line-height: 32px;
+    webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    top: 4px;
+}
+/*------------------
+[ 5. Section background ]
+--------------------*/
+.section-full-screen{
+	height: 100%;
+	background-size: cover;
+	position: relative;
+}
+.section-full-screen .overlay {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+}
+.section-full-screen .section-content-center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	width: auto;
+	-ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.section-full-screen .section-content-center .inner{
+	position: relative;
+}
+.section-full-screen h2{
+	font-size: 160px;
+	color: #cccccc;
+	text-transform: uppercase;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	letter-spacing: 20px;
+	line-height: normal;
+}
+.section-full-screen  h4{
+	font-size: 80px;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 900;
+	line-height: normal;
+
+}
+.section-full-screen  h3{
+	font-size: 140px;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	color: #ccc;
+	font-weight: 300;
+	line-height: normal;
+
+}
+.section-full-screen .kt-btn{
+	height: 50px;
+	padding: 0 45px;
+	background-color: #ffd68f;
+	color: #000;
+	text-transform: uppercase;
+	line-height: 50px;
+	display: inline-block;
+	border: none;
+}
+
+.section-full-screen .kt-btn:hover{
+	color: #fff;
+}
+.section-full-screen .kt-btn-border{
+	border: 1px solid #fff;
+	height: 50px;
+	padding: 0 45px;
+	background-color:transparent;
+	color: #fff;
+	text-transform: uppercase;
+	line-height: 50px;
+	display: inline-block;
+}	
+.section-full-screen .video-btn{
+	width: 45px;
+	height: 45px;
+	display: inline-block;
+	background:url("../images/video-btn.png") no-repeat center center;
+	font-size: 0;
+}
+
+.section-lookbock{
+	background: url("../images/lock-boock-br.jpg") 50% 0 no-repeat fixed;
+}
+.section-lookbock h4{
+	margin-top: -40px;
+
+}
+.section-lookbock .group-btn{
+	margin-top: 35px;
+}
+.section-lookbock .video-btn{
+	margin-top: 20px;
+}
+
+.section-modern{
+	background: url("../images/modern-br.jpg") 50% 0 no-repeat fixed;
+}
+.section-modern h2{
+	font-size: 80px;
+	letter-spacing: normal;
+	color: #999999;
+	margin-top: 40px;
+}
+.section-modern h3{
+	margin-top: -35px;
+	letter-spacing: 20px;
+}
+.section-modern h4{
+	font-size: 70px;
+	margin-top: -30px;
+}
+.section-modern .group-btn{
+	margin-top: 118px;
+}
+
+.section-new-style{
+	background: url("../images/new-style-br.jpg") 50% 0 no-repeat fixed;
+}
+
+.section-new-style .group-btn{
+	margin-top: 120px;
+}
+
+.section-new-style h4{
+	margin-top: -45px;
+}
+.section-new-style .style{
+	margin-top: -45px;
+}
+
+.section-colection{
+	background: url("../images/colection-br.jpg") 50% 0 no-repeat fixed;
+}
+.section-colection h4{
+	margin-top: -45px;
+}
+.section-colection .group-btn{
+	margin-top: 75px;
+}
+
+
+
+/** REPONSIVE **/
+/*----------------
+[9. Styles for devices(>1200px)]
+*/
+@media (min-width: 1201px){
+	
+}
+/*----------------
+[10. Styles for devices(>=993px and <=1200px)]
+*/
+@media (min-width: 993px) and (max-width: 1200px) {
+	
+}
+/*--------------------
+[11. Styles for devices(>=768px and <=992px)]
+*/
+@media (min-width: 768px) and (max-width: 992px) {
+	.option10 #main-menu{
+		float: left;
+	}
+	.section-full-screen h2{
+		font-size: 100px;
+	}
+	.section-full-screen h4{
+		font-size: 60px;
+	}
+	.section-new-style h4,
+	.section-new-style .style,
+	.section-lookbock h4,
+	.section-colection h4{
+		margin: 0;
+	}
+}
+/*--------------------
+[12. Styles for devices(>=481px and <=767px)]
+*/
+@media (min-width: 481px) and (max-width: 767px) { 
+	.option10 .main-header .logo{
+		margin-top: 0;
+	}
+	.option10 .main-header .logo img{
+		width: 40%;
+		height: auto;
+	}
+	.option10 .mini-cart,
+	.option10 .form-search{
+		margin-top: 10px;
+	}
+
+	.option10 #main-menu .navbar-header{
+		background: transparent;
+		font-size: 0;
+	}
+	.option10 #main-menu .navbar-header .navbar-brand{
+		display: none;
+	}
+	.option10 #main-menu{
+		margin-top: 2px;
+		float: left;
+	}
+	.option10 #main-menu .navbar{
+		position: static;
+	}
+	.option10 #main-menu .navbar-collapse{
+		position: absolute;
+		left: 15px;
+		right: 15px;
+	}
+	.option10 #main-menu .navbar .navbar-nav>li>a, 
+	.option10 #main-menu .navbar .navbar-nav>li>a{
+		padding: 10px 15px;
+		color: #333;
+	}
+	.option10 #main-menu .navbar .navbar-nav>li:last-child{
+		border: none;
+	}
+	.option10 .navbar-nav{
+		margin: 0;
+	}
+	.option10 #main-menu .navbar .navbar-nav>li>a:after{
+		background: transparent;
+	}
+	
+	.option10 .form-search .icon,
+	.option10 .mini-cart .icon{
+		background-color: transparent;
+	}
+	.option10 .form-search{
+		padding: 0;
+	}
+	.option10 .main-header{
+		padding: 10px 15px;
+	}
+	.section-full-screen h2{
+		font-size: 36px;
+		letter-spacing: normal;
+		margin: 0!important;
+	}
+	.section-full-screen h4{
+		font-size: 24px;
+		margin: 0!important;
+	}
+	.section-full-screen h3{
+		font-size: 30px;
+		margin: 0!important;
+	}
+	.section-full-screen .kt-btn,
+	.section-full-screen .kt-btn-border{
+		height: 30px;
+		padding: 0 10px;
+		line-height: 30px;
+	}
+	.section-modern .group-btn,
+	.section-colection .group-btn,
+	.section-new-style .group-btn{
+		margin-top: 20px;
+	}
+}
+/*--------------------
+[13. Styles for devices(<=480px)]
+*/
+@media (max-width: 480px) {
+	.option10 .main-header .logo{
+		margin-top: 0;
+	}
+	.option10 .main-header .logo img{
+		width: 40%;
+		height: auto;
+	}
+	.option10 .mini-cart,
+	.option10 .form-search{
+		margin-top: 10px;
+	}
+
+	.option10 #main-menu .navbar-header{
+		background: transparent;
+		font-size: 0;
+	}
+	.option10 #main-menu .navbar-header .navbar-brand{
+		display: none;
+	}
+	.option10 #main-menu{
+		margin-top: 2px;
+		float: left;
+	}
+	.option10 #main-menu .navbar{
+		position: static;
+	}
+	.option10 #main-menu .navbar-collapse{
+		position: absolute;
+		left: 15px;
+		right: 15px;
+	}
+	.option10 #main-menu .navbar .navbar-nav>li>a, 
+	.option10 #main-menu .navbar .navbar-nav>li>a{
+		padding: 10px 15px;
+		color: #333;
+	}
+	.option10 #main-menu .navbar .navbar-nav>li:last-child{
+		border: none;
+	}
+	.option10 .navbar-nav{
+		margin: 0;
+	}
+	.option10 #main-menu .navbar .navbar-nav>li>a:after{
+		background: transparent;
+	}
+
+	.option10 .form-search .icon,
+	.option10 .mini-cart .icon{
+		background-color: transparent;
+	}
+	.option10 .form-search{
+		padding: 0;
+	}
+	.option10 .main-header{
+		padding: 10px 15px;
+	}
+	.section-full-screen h2{
+		font-size: 36px;
+		letter-spacing: normal;
+		margin: 0!important;
+	}
+	.section-full-screen h4{
+		font-size: 24px;
+		margin: 0!important;
+	}
+	.section-full-screen h3{
+		font-size: 30px;
+		margin: 0!important;
+	}
+	.section-full-screen .kt-btn,
+	.section-full-screen .kt-btn-border{
+		height: 30px;
+		padding: 0 10px;
+		line-height: 30px;
+	}
+	.section-modern .group-btn,
+	.section-colection .group-btn,
+	.section-new-style .group-btn{
+		margin-top: 20px;
+	}
+}
