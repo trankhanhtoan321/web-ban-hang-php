@@ -48,8 +48,8 @@
                                         <div class="right-block">
                                             <h5 class="product-name"><a href="/<?= rewrite_url($pro['pro_name']); ?>-<?= $pro['pro_id']; ?>.html"><?= $pro['pro_name']; ?></a></h5>
                                             <div class="content_price">
-                                                <span class="price product-price"><?= number_format($pro['pro_price']); ?> đ</span>
-                                                <span class="price old-price"><?= $pro['pro_price_sale']!=0?number_format($pro['pro_price_sale']).' đ':''; ?></span>
+                                                <span class="price product-price"><?= $pro['pro_price_sale']!=0?number_format($pro['pro_price_sale']):number_format($pro['pro_price']); ?> đ</span>
+                                                <span class="price old-price"><?= $pro['pro_price_sale']!=0?number_format($pro['pro_price']).' đ':''; ?></span>
                                             </div>
                                         </div>
                                         <div class="left-block">

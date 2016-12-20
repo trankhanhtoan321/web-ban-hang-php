@@ -13,6 +13,7 @@ class Admin extends CI_Controller
 		$this->load->model('categorys_model');
 		$this->load->model('products_model');
 		$this->load->model('setting_model');
+		$this->load->model('blogcategory_model');
 		$this->userlogin = $this->session->userdata('userlogin');
 	}
 
@@ -297,6 +298,50 @@ class Admin extends CI_Controller
 		}
 		$data['_varibles'] = NULL;
 		$data['_content'] = 'admin/general_setting';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function blogcategory()
+	{
+		if($this->input->post('delete_records'))
+		{
+			if($this->blogcategory_model->delete($this->input->post('table_records',TRUE)))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		$data['_content'] = 'admin/blogcategory';
+		$data['_varibles']['blogcategorys'] = $this->blogcategory_model->get_all();
+		$this->load->view('layouts/admin',$data);
+	}
+	public function new_blogcategory()
+	{
+		if($this->input->post('new_blogcategory'))
+		{
+			$blogcat_name = $this->input->post('blogcat_name',TRUE);
+			$blogcat_seo_title = $this->input->post('blogcat_seo_title',TRUE);
+			$blogcat_seo_description = $this->input->post('blogcat_seo_description',TRUE);
+			$blogcat_seo_keyword = $this->input->post('blogcat_seo_keyword',TRUE);
+			$blogcat_parent_id = $this->input->post('blogcat_parent_id',TRUE);
+			$blogcat_description = $this->input->post('blogcat_description');
+			$blogcat_image = '';
+			if($_FILES['blogcat_image']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('cat_image'))
+					$blogcat_image='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			if($this->blogcategory_model->insert($blogcat_name,$blogcat_seo_title,$blogcat_seo_description,$blogcat_seo_keyword,$blogcat_parent_id,$blogcat_description,$blogcat_image))
+			{
+				$data['_alert'] = 'alert/success';
+			}
+			else
+			{
+				$data['_alert'] = 'alert/error';
+			}
+		}
+		$data['_varibles']['blogcategorys'] = $this->blogcategory_model->get_all();
+		$data['_content'] = 'admin/new_blogcategory';
 		$this->load->view('layouts/admin',$data);
 	}
 }

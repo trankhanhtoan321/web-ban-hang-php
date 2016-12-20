@@ -17,6 +17,12 @@
         <li><a href="/admin/products">Products</a></li>
       </ul>
     </li>
+    <li><a><i class="fa fa-file"></i> Articles <span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="/admin/new_blogcategory">New Category</a></li>
+        <li><a href="/admin/blogcategory">Categorys</a></li>
+      </ul>
+    </li>
     <li><a><i class="fa fa-user"></i>User <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <li><a href="/admin/profile_user">Profile</a></li>
