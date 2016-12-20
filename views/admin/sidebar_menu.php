@@ -19,6 +19,8 @@
     </li>
     <li><a><i class="fa fa-file"></i> Articles <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
+        <li><a href="/admin/new_blog">New Article</a></li>
+        <li><a href="/admin/blogs">Articles</a></li>
         <li><a href="/admin/new_blogcategory">New Category</a></li>
         <li><a href="/admin/blogcategory">Categorys</a></li>
       </ul>

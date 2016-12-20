@@ -14,6 +14,7 @@ class Admin extends CI_Controller
 		$this->load->model('products_model');
 		$this->load->model('setting_model');
 		$this->load->model('blogcategory_model');
+		$this->load->model('blog_model');
 		$this->userlogin = $this->session->userdata('userlogin');
 	}
 
@@ -328,7 +329,7 @@ class Admin extends CI_Controller
 				$config['upload_path'] = 'uploads/images/categorys/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$this->load->library('upload',$config);
-				if($this->upload->do_upload('cat_image'))
+				if($this->upload->do_upload('blogcat_image'))
 					$blogcat_image='/'.$config['upload_path'].$this->upload->data('file_name');
 			}
 			if($this->blogcategory_model->insert($blogcat_name,$blogcat_seo_title,$blogcat_seo_description,$blogcat_seo_keyword,$blogcat_parent_id,$blogcat_description,$blogcat_image))
@@ -342,6 +343,121 @@ class Admin extends CI_Controller
 		}
 		$data['_varibles']['blogcategorys'] = $this->blogcategory_model->get_all();
 		$data['_content'] = 'admin/new_blogcategory';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function update_blogcategory($blogcat_id=0)
+	{
+		if($blogcat_id == 0) redirect('/admin/blogcategory','refresh');
+		if($this->input->post('update_blogcategory'))
+		{
+			$blogcat_name = $this->input->post('blogcat_name',TRUE);
+			$blogcat_seo_title = $this->input->post('blogcat_seo_title',TRUE);
+			$blogcat_seo_description = $this->input->post('blogcat_seo_description',TRUE);
+			$blogcat_seo_keyword = $this->input->post('blogcat_seo_keyword',TRUE);
+			$blogcat_parent_id = $this->input->post('blogcat_parent_id',TRUE);
+			$blogcat_description = $this->input->post('blogcat_description');
+			$blogcat_image = '';
+			if($_FILES['blogcat_image']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('blogcat_image'))
+					$blogcat_image='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			if($this->blogcategory_model->update($blogcat_id,$blogcat_name,$blogcat_seo_title,$blogcat_seo_description,$blogcat_seo_keyword,$blogcat_parent_id,$blogcat_description,$blogcat_image))
+			{
+				$data['_alert'] = 'alert/success';
+			}
+			else
+			{
+				$data['_alert'] = 'alert/error';
+			}
+		}
+		$data['_varibles']['blogcategory'] =  $this->blogcategory_model->get($blogcat_id);
+		$data['_varibles']['blogcategorys'] = $this->blogcategory_model->get_all();
+		$data['_content'] = 'admin/update_blogcategory';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function new_blog()
+	{
+		if($this->input->post('new_blog'))
+		{
+			$blog_user_id = $this->userlogin['user_id'];
+			$blog_time = time();
+			$blog_name = $this->input->post('blog_name',TRUE);
+			$blog_seo_title = $this->input->post('blog_seo_title',TRUE);
+			$blog_seo_description = $this->input->post('blog_seo_description',TRUE);
+			$blog_seo_keyword = $this->input->post('blog_seo_keyword',TRUE);
+			$blog_cat_ids = json_encode($this->input->post('blog_cat_ids',TRUE));
+			$blog_content = $this->input->post('blog_content');
+			$blog_image = '';
+			if($_FILES['blog_image']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('blog_image'))
+					$blog_image='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			if($this->blog_model->insert($blog_user_id,$blog_time,$blog_name,$blog_seo_title,$blog_seo_description,$blog_seo_keyword,$blog_cat_ids,$blog_content,$blog_image))
+			{
+				$data['_alert'] = 'alert/success';
+			}
+			else
+			{
+				$data['_alert'] = 'alert/error';
+			}
+		}
+		$data['_varibles']['blogcategorys'] = $this->blogcategory_model->get_all();
+		$data['_content'] = 'admin/new_blog';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function blogs()
+	{
+		if($this->input->post('delete_records'))
+		{
+			if($this->blog_model->delete($this->input->post('table_records',TRUE)))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		$data['_content'] = 'admin/blog';
+		$data['_varibles']['blogs'] = $this->blog_model->get_all();
+		$this->load->view('layouts/admin',$data);
+	}
+	public function update_blog($blog_id=0)
+	{
+		if($blog_id == 0) redirect('/admin/blogs','refresh');
+		if($this->input->post('update_blog'))
+		{
+			$blog_time = time();
+			$blog_name = $this->input->post('blog_name',TRUE);
+			$blog_seo_title = $this->input->post('blog_seo_title',TRUE);
+			$blog_seo_description = $this->input->post('blog_seo_description',TRUE);
+			$blog_seo_keyword = $this->input->post('blog_seo_keyword',TRUE);
+			$blog_cat_ids = json_encode($this->input->post('blog_cat_ids',TRUE));
+			$blog_content = $this->input->post('blog_content');
+			$blog_image = '';
+			if($_FILES['blog_image']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('blog_image'))
+					$blog_image='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			if($this->blog_model->update($blog_id,$blog_time,$blog_name,$blog_seo_title,$blog_seo_description,$blog_seo_keyword,$blog_cat_ids,$blog_content,$blog_image))
+			{
+				$data['_alert'] = 'alert/success';
+			}
+			else
+			{
+				$data['_alert'] = 'alert/error';
+			}
+		}
+		$data['_varibles']['blog'] =  $this->blog_model->get($blog_id);
+		$data['_varibles']['blogcategorys'] = $this->blogcategory_model->get_all();
+		$data['_content'] = 'admin/update_blog';
 		$this->load->view('layouts/admin',$data);
 	}
 }

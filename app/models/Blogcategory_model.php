@@ -26,6 +26,21 @@ class Blogcategory_model extends CI_Model
 		if($this->db->insert('blogcategory',$data)) return TRUE;
 		return FALSE;
 	}
+	public function update($blogcat_id,$blogcat_name,$blogcat_seo_title,$blogcat_seo_description,$blogcat_seo_keyword,$blogcat_parent_id,$blogcat_description,$blogcat_image)
+	{
+		$data = array(
+			'blogcat_name' => $blogcat_name,
+			'blogcat_description'=>$blogcat_description,
+			'blogcat_seo_title'=>$blogcat_seo_title,
+			'blogcat_seo_keyword'=>$blogcat_seo_keyword,
+			'blogcat_seo_description'=>$blogcat_seo_description,
+			'blogcat_parent_id'=>$blogcat_parent_id
+			);
+		if($blogcat_image != '') $data['blogcat_image'] = $blogcat_image;
+		$this->db->where('blogcat_id',$blogcat_id);
+		if($this->db->update('blogcategory',$data)) return TRUE;
+		return FALSE;
+	}
 	public function get($blogcat_id)
 	{
 		$this->db->where('blogcat_id',$blogcat_id);
