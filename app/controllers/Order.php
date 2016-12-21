@@ -10,6 +10,7 @@ class Order extends CI_Controller {
 		$this->load->model('products_model');
 		$this->load->model('customer_model');
 		$this->load->model('orders_model');
+		$this->load->model('orderdt_model');
 	}
 	public function index()
 	{
@@ -26,16 +27,16 @@ class Order extends CI_Controller {
 				$order_value = $this->cart->total();
 				if($orderdt_orders_id = $this->orders_model->insert($order_customer_id,$order_time,$order_value))
 				{
-					//insert vaof chi tieets
+					foreach($this->cart->contents() as $item)
+					{
+						$orderdt_pro_id = $item['id'];
+						$orderdt_qty = $item['qty'];
+						$orderdt_price = $item['price'];
+						$this->orderdt_model->insert($orderdt_pro_id,$orderdt_qty,$orderdt_price,$orderdt_orders_id);
+					}
+					$this->cart->destroy();
+					redirect('/order/success','refresh');
 				}
-				else
-				{
-
-				}
-			}
-			else
-			{
-
 			}
 		}
 		$data['_varibles']['SEO_title'] = $this->setting_model->get('set_pagetitle');
@@ -45,6 +46,17 @@ class Order extends CI_Controller {
 		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
 		
 		$data['_content'] = 'site/checkout';
+		$this->load->view('layouts/site',$data);
+	}
+	public function success()
+	{
+		$data['_varibles']['SEO_title'] = $this->setting_model->get('set_pagetitle');
+		$data['_varibles']['SEO_keywords'] = $this->setting_model->get('set_pagekeyword');
+		$data['_varibles']['SEO_description'] = $this->setting_model->get('set_pagedescriptiton');
+
+		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
+		
+		$data['_content'] = 'site/checkoutsuccess';
 		$this->load->view('layouts/site',$data);
 	}
 }

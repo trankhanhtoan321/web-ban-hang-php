@@ -15,6 +15,7 @@ class Admin extends CI_Controller
 		$this->load->model('setting_model');
 		$this->load->model('blogcategory_model');
 		$this->load->model('blog_model');
+		$this->load->model('orders_model');
 		$this->userlogin = $this->session->userdata('userlogin');
 	}
 
@@ -458,6 +459,38 @@ class Admin extends CI_Controller
 		$data['_varibles']['blog'] =  $this->blog_model->get($blog_id);
 		$data['_varibles']['blogcategorys'] = $this->blogcategory_model->get_all();
 		$data['_content'] = 'admin/update_blog';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function orders()
+	{
+
+		if($this->input->post('delete_records'))
+		{
+			if($this->orders_model->delete($this->input->post('table_records',TRUE)))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		if($this->input->post('done_records'))
+		{
+			if($this->orders_model->done($this->input->post('table_records',TRUE)))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		if($this->input->post('waitting_records'))
+		{
+			if($this->orders_model->waitting($this->input->post('table_records',TRUE)))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		$data['_varibles']['orders'] = $this->orders_model->get_all_detail();
+		$data['_content'] = 'admin/orders';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function order_detail($order_id=0)
+	{
+		if($order_id==0) redirect('/admin/orders','refresh');
+		$data['_varibles']['orders'] = $this->orders_model->get($order_id);
+		$data['_content'] = 'admin/order_detail';
 		$this->load->view('layouts/admin',$data);
 	}
 }
