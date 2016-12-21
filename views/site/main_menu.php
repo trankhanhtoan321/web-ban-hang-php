@@ -25,7 +25,7 @@
                         </ul> 
                     </li>
                     <?php } } ?>
-                    <li><a href="#">Hướng Dẫn</a></li>
+                    <li><a href="/cart">Giỏ Hàng</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

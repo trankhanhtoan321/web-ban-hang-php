@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 <form enctype="multipart/form-data" action="" method="post" data-parsley-validate class="form-horizontal form-label-left">
-
+	<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
+					
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="cat_name">
 							Category Name:<span class="required">*</span>

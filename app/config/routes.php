@@ -55,6 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['danh-muc/(:any)-(:num)\.html']='category/index/$2';
-$route['blog/(:any)-(:num)\.html']='blog/index/$2';
-$route['cat-blog/(:any)-(:num)\.html']='blogcategory/index/$2';
-$route['(:any)-(:num)\.html']='san_pham';
+$route['(:any)-(:num)\.html']='product/index/$2';

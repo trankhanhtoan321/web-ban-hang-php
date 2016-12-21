@@ -57,7 +57,7 @@
                                                 <img class="img-responsive" src="<?= $pro['pro_image']; ?>" />
                                             </a>
                                             <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#">Add to Cart</a>
+                                                <a title="Add to Cart" href="/cart/addcart/<?= $pro['pro_id']; ?>">Mua Ngay</a>
                                             </div>
                                         </div>
                                     </li>
