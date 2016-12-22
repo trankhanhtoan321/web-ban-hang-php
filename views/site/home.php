@@ -1,9 +1,13 @@
 <!-- 
-varible : categorys, products
+varible : categorys, products,slides
 feature category: fashion,sports,electronic,digital,furniture,jewelry
  -->
 <!-- Home slideder-->
-<?php $this->load->view('site/home_slider.php'); ?>
+<?php
+$data = array();
+$data['slides'] = $slides;
+$this->load->view('site/home_slider.php',$data);
+?>
 <!-- END Home slideder-->
 <!-- lastest deal -->
 <?php //$this->load->view('site/lastest_deal'); ?>
@@ -38,5 +42,28 @@ feature category: fashion,sports,electronic,digital,furniture,jewelry
     			}
     		}
     	?>
+    </div>
+</div>
+
+<div id="content-wrap">
+    <div class="container">
+        <!-- Baner bottom -->
+        <!-- <div class="row banner-bottom">
+            <div class="col-sm-6 item-left">
+                <div class="banner-boder-zoom">
+                    <a href="#"><img alt="ads" class="img-responsive" src="assets/data/banner-botom1.jpg" /></a>
+                </div>
+            </div>
+            <div class="col-sm-6 item-right">
+                <div class="banner-boder-zoom">
+                    <a href="#"><img alt="ads" class="img-responsive" src="assets/data/banner-bottom2.jpg" /></a>
+                </div>
+            </div>
+        </div> -->
+        <!-- end banner bottom -->
+
+        <!-- blog list -->
+        <?php $this->load->view('site/blog_list.php'); ?>
+        <!-- ./blog list -->
     </div>
 </div>

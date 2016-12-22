@@ -59,6 +59,11 @@
                                             <div class="add-to-cart">
                                                 <a title="Add to Cart" href="/cart/addcart/<?= $pro['pro_id']; ?>">Mua Ngay</a>
                                             </div>
+                                            <?php if($pro['pro_price_sale']!=0){ ?>
+                                            <div class="price-percent-reduction2">
+                                                -<?= (int)((($pro['pro_price']-$pro['pro_price_sale'])/$pro['pro_price'])*100) ?>%
+                                            </div>
+                                            <?php } ?>
                                         </div>
                                     </li>
                                     <?php } ?>

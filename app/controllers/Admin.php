@@ -16,6 +16,7 @@ class Admin extends CI_Controller
 		$this->load->model('blogcategory_model');
 		$this->load->model('blog_model');
 		$this->load->model('orders_model');
+		$this->load->model('slide_model');
 		$this->userlogin = $this->session->userdata('userlogin');
 	}
 
@@ -441,7 +442,7 @@ class Admin extends CI_Controller
 			$blog_image = '';
 			if($_FILES['blog_image']['name'] != NULL)
 			{
-				$config['upload_path'] = 'uploads/images/categorys/';
+				$config['upload_path'] = 'uploads/images/blogs/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('blog_image'))
@@ -486,11 +487,39 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/orders';
 		$this->load->view('layouts/admin',$data);
 	}
-	public function order_detail($order_id=0)
+	public function order_detail($order_id=0,$done=0)
 	{
 		if($order_id==0) redirect('/admin/orders','refresh');
+		if($done==1) $this->orders_model->done($order_id);
 		$data['_varibles']['orders'] = $this->orders_model->get($order_id);
 		$data['_content'] = 'admin/order_detail';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function new_slide()
+	{
+		if($this->input->post('new_slide'))
+		{
+			$slide_link = $this->input->post('slide_link');
+			$slide_image = '';
+			if($_FILES['slide_image']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/slides/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('slide_image'))
+					$slide_image='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			if($this->slide_model->insert($slide_link,$slide_image))
+			{
+				$data['_alert'] = 'alert/success';
+			}
+			else
+			{
+				$data['_alert'] = 'alert/error';
+			}
+		}
+		$data['_varibles'] = NULL;
+		$data['_content'] = 'admin/new_slide';
 		$this->load->view('layouts/admin',$data);
 	}
 }

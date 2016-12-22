@@ -5,9 +5,29 @@
             <div class="col-sm-12 header-top-right">
                 <div class="homeslider">
                     <ul id="contenhomeslider">
-                      <li><img alt="Funky roots" src="assets/data/slide-option2.jpg" title="Funky roots" /></li>
-                      <li><img alt="Funky roots" src="assets/data/slide-option2.jpg" title="Funky roots" /></li>
-                      <li><img  alt="Funky roots" src="assets/data/slide-option2.jpg" title="Funky roots" /></li>
+                      <?php
+                      foreach($slides as $slide)
+                      {
+                        if($slide['slide_link']!='')
+                        {
+                          ?>
+                          <li>
+                            <a href="<?= $slide['slide_link']; ?>">
+                              <img class="img-responsive" src="<?= $slide['slide_image']; ?>" />
+                            </a>
+                          </li>
+                          <?php
+                        }
+                        else
+                        {
+                          ?>
+                          <li>
+                            <img class="img-responsive" src="<?= $slide['slide_image']; ?>" />
+                          </li>
+                          <?php
+                        }
+                      }
+                      ?>
                     </ul>
                 </div>
             </div>

@@ -52,7 +52,7 @@
                             <span class="toal-price pull-right"><?= number_format($this->cart->total()); ?> đ</span>
                         </div>
                         <div class="cart-buttons">
-                            <a href="/order" class="btn-check-out">Thanh Toán</a>
+                            <a href="/order" class="btn-check-out">Đặt Hàng</a>
                         </div>
                     </div>
                 </div>

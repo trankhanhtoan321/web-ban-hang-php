@@ -61,28 +61,6 @@
 <?php $this->load->view($_content,$_varibles); ?>
 <!-- /content -->
 
-<!-- <div id="content-wrap">
-    <div class="container"> -->
-        <!-- Baner bottom -->
-        <!-- <div class="row banner-bottom">
-            <div class="col-sm-6 item-left">
-                <div class="banner-boder-zoom">
-                    <a href="#"><img alt="ads" class="img-responsive" src="assets/data/banner-botom1.jpg" /></a>
-                </div>
-            </div>
-            <div class="col-sm-6 item-right">
-                <div class="banner-boder-zoom">
-                    <a href="#"><img alt="ads" class="img-responsive" src="assets/data/banner-bottom2.jpg" /></a>
-                </div>
-            </div>
-        </div> -->
-        <!-- end banner bottom -->
-
-        <!-- blog list -->
-        <!-- <?php //$this->load->view('site/blog_list.php'); ?> -->
-        <!-- ./blog list -->
-    <!-- </div> --> <!-- /.container -->
-<!-- </div> -->
 
 <!-- Footer -->
 <?php $this->load->view('site/footer',$_varibles); ?>

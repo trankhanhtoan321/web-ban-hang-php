@@ -6,6 +6,7 @@
     <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <li><a href="/admin">Dashboard</a></li>
+        <li><a target="_blank" href="/">Website</a></li>
         <!-- <li><a href="/">Website</a></li> -->
       </ul>
     </li>
@@ -30,10 +31,29 @@
         <li><a href="/admin/orders">Orders</a></li>
       </ul>
     </li>
+    <li><a><i class="fa fa-plug"></i> Extends <span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a>Slide<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+              <li><a href="/admin/new_slide">New Slide</a></li>
+            </ul>
+        </li>
+        <li><a>Social<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+              
+            </ul>
+        </li>
+      </ul>
+    </li>
     <li><a><i class="fa fa-user"></i>User <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <li><a href="/admin/profile_user">Profile</a></li>
         <li><a href="/admin/change_password">Change Password</a></li>
+      </ul>
+    </li>
+    <li><a><i class="fa fa-area-chart"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        
       </ul>
     </li>
     <li><a><i class="fa fa-cogs"></i>Setting <span class="fa fa-chevron-down"></span></a>

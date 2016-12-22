@@ -36,6 +36,10 @@
             <h3>Orders Detail</h3>
          </div>
          <div class="x_content">
+            <div class="col-xs-12 text-right">
+               <h4>Order Time: <?= date("d/m/Y H:i",$orders[0]['order_time']); ?></h4>
+               <h4>Status: <?= $orders[0]['order_success']==0?"<i style='color:red;'>Waitting</i>":"<i class='color:green;'>Done</i>"; ?></h4>
+            </div>
             <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                <thead>
                   <tr>
@@ -64,7 +68,8 @@
             </table>
             <div class="ln_solid"></div>
             <div class="form-group">
-               <a class="btn btn-success pull-right" href="#" >Done</a>
+               <a class="btn btn-primary pull-left" href="/admin/orders" >Back</a>
+               <a class="btn btn-success pull-right" href="/admin/order_detail/<?= $orders[0]['order_id']; ?>/1" >Done</a>
             </div>
          </div>
       </div>
