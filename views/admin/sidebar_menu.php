@@ -36,6 +36,7 @@
         <li><a>Slide<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               <li><a href="/admin/new_slide">New Slide</a></li>
+              <li><a href="/admin/slides">Slides</a></li>
             </ul>
         </li>
         <li><a>Social<span class="fa fa-chevron-down"></span></a>

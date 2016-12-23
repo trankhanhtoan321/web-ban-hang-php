@@ -522,4 +522,44 @@ class Admin extends CI_Controller
 		$data['_content'] = 'admin/new_slide';
 		$this->load->view('layouts/admin',$data);
 	}
+	public function slides()
+	{
+		if($this->input->post('delete_records'))
+		{
+			if($this->slide_model->delete($this->input->post('table_records',TRUE)))
+				$data['_alert'] = 'alert/success';
+			else $data['_alert'] = 'alert/error';
+		}
+		$data['_varibles']['slides'] = $this->slide_model->get_all();
+		$data['_content'] = 'admin/slides';
+		$this->load->view('layouts/admin',$data);
+	}
+	public function update_slide($slide_id=0)
+	{
+		if($slide_id == 0) redirect('/admin/slides','refresh');
+		if($this->input->post('update_slide'))
+		{
+			$slide_link = $this->input->post('slide_link');
+			$slide_image = '';
+			if($_FILES['slide_image']['name'] != NULL)
+			{
+				$config['upload_path'] = 'uploads/images/slides/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('slide_image'))
+					$slide_image='/'.$config['upload_path'].$this->upload->data('file_name');
+			}
+			if($this->slide_model->update($slide_id,$slide_link,$slide_image))
+			{
+				$data['_alert'] = 'alert/success';
+			}
+			else
+			{
+				$data['_alert'] = 'alert/error';
+			}
+		}
+		$data['_varibles']['slide'] =  $this->slide_model->get($slide_id);
+		$data['_content'] = 'admin/update_slide';
+		$this->load->view('layouts/admin',$data);
+	}
 }
