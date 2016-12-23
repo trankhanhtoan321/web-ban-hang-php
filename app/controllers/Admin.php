@@ -499,7 +499,7 @@ class Admin extends CI_Controller
 	{
 		if($this->input->post('new_slide'))
 		{
-			$slide_link = $this->input->post('slide_link');
+			$slide_link = $this->input->post('slide_link',TRUE);
 			$slide_image = '';
 			if($_FILES['slide_image']['name'] != NULL)
 			{
@@ -539,7 +539,7 @@ class Admin extends CI_Controller
 		if($slide_id == 0) redirect('/admin/slides','refresh');
 		if($this->input->post('update_slide'))
 		{
-			$slide_link = $this->input->post('slide_link');
+			$slide_link = $this->input->post('slide_link',TRUE);
 			$slide_image = '';
 			if($_FILES['slide_image']['name'] != NULL)
 			{

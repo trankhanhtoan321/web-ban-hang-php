@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      <div class="x_content">
        <div class="form-group">
          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-           <input type="submit" class="btn btn-success" name="new_slide" value="Create" />
+           <input type="submit" class="btn btn-success" name="update_slide" value="Update" />
         </div>
      </div>
   </div>

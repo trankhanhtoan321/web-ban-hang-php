@@ -16,6 +16,14 @@ class Slide_model extends CI_Model
 		if($this->db->insert('slide',$data)) return TRUE;
 		return FALSE;
 	}
+	public function update($slide_id,$slide_link,$slide_image)
+	{
+		$data = array('slide_link'=>$slide_link);
+		if($slide_image!='') $data['slide_image']=$slide_image;
+		$this->db->where('slide_id',$slide_id);
+		if($this->db->update('slide',$data)) return TRUE;
+		return FALSE;
+	}
 	public function get_all()
 	{
 		$result = $this->db->get('slide');
