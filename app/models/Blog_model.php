@@ -25,6 +25,13 @@ class Blog_model extends CI_Model
 	}
 	public function get_all()
 	{
+		$this->db->order_by('blog_time','DESC');
+		$result = $this->db->get('blogs');
+		return $result->result_array();
+	}
+	public function get_all_popular()
+	{
+		$this->db->order_by('blog_views','DESC');
 		$result = $this->db->get('blogs');
 		return $result->result_array();
 	}
@@ -68,6 +75,21 @@ class Blog_model extends CI_Model
 		{
 			$this->db->where('blog_id',$blog_id);
 			if($this->db->delete('blogs')) return TRUE;
+			return FALSE;
+		}
+		return FALSE;
+	}
+	public function increase_views($blog_id)
+	{
+		$this->db->select('blog_views');
+		$this->db->where('blog_id',$blog_id);
+		$this->db->from('blogs');
+		$result = $this->db->get()->result_array();
+		if(count($result)==1)
+		{
+			$data = array('blog_views'=>$result[0]['blog_views']+1);
+			$this->db->where('blog_id',$blog_id);
+			if($this->db->update('blogs',$data)) return TRUE;
 			return FALSE;
 		}
 		return FALSE;

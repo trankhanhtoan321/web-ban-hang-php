@@ -509,55 +509,10 @@
             <!-- ./left colunm -->
             <!-- Center colunm-->
             <div class="center_column col-xs-12 col-sm-12" id="center_column">
-                <!-- category-slider -->
-                <!-- <div class="category-slider">
-                    <ul class="owl-carousel owl-style2" data-dots="false" data-loop="true" data-nav = "true" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-items="1">
-                        <li>
-                            <img src="/assets/data/category-slide.jpg" alt="category-slider">
-                        </li>
-                        <li>
-                            <img src="/assets/data/slide-cart2.jpg" alt="category-slider">
-                        </li>
-                    </ul>
-                </div> -->
-                <!-- ./category-slider -->
-
-                <!-- category short-description -->
-                <div class="cat-short-desc">
-                    <div class="desc-text text-left">
-                        <p><?= $category['cat_description']; ?></p>
-                    </div>
-                    <div class="cat-short-desc-products">
-                        <ul class="row">
-                            <?php
-                            foreach($categorys as $cat_temp)
-                            {
-                                if($cat_temp['cat_parent_id'] == $category['cat_id'])
-                                {
-                                ?>
-                                    <li class="col-sm-3">
-                                        <div class="product-container">
-                                            <div class="product-thumb">
-                                            <a href="/danh-muc/<?= rewrite_url($cat_temp['cat_name']); ?>-<?= $cat_temp['cat_id']; ?>.html"><img src="<?= $cat_temp['cat_image']; ?>"></a>
-                                            </div>
-                                            <h5 class="product-name">
-                                                <a href="/danh-muc/<?= rewrite_url($cat_temp['cat_name']); ?>-<?= $cat_temp['cat_id']; ?>.html"><?= $cat_temp['cat_name']; ?></a>
-                                                <!-- <span>(90)</span> -->
-                                            </h5>
-                                        </div>
-                                    </li>
-                                <?php
-                                }
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-                <!-- ./category short-description -->
                 <!-- view-product-list-->
                 <div id="view-product-list" class="view-product-list">
                     <h2 class="page-heading">
-                        <span class="page-heading-title"><?= $category['cat_name']; ?></span>
+                        <span class="page-heading-title">Kết quả</span>
                     </h2>
                     <!-- <ul class="display-product-option">
                         <li class="view-as-grid selected">

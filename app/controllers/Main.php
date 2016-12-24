@@ -9,6 +9,8 @@ class Main extends CI_Controller {
 		$this->load->model('categorys_model');
 		$this->load->model('products_model');
 		$this->load->model('slide_model');
+		$this->load->model('blog_model');
+		$this->load->model('blogcategory_model');
 	}
 	public function index()
 	{
@@ -19,6 +21,8 @@ class Main extends CI_Controller {
 		$data['_varibles']['categorys'] = $this->categorys_model->get_all();
 		$data['_varibles']['products'] = $this->products_model->get_all();
 		$data['_varibles']['slides'] = $this->slide_model->get_all();
+		$data['_varibles']['blogs'] = $this->blog_model->get_all();
+		$data['_varibles']['blogcategory'] = $this->blogcategory_model->get_all();
 		$data['_content'] = 'site/home';
 		$this->load->view('layouts/site',$data);
 	}

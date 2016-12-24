@@ -63,7 +63,10 @@ $this->load->view('site/home_slider.php',$data);
         <!-- end banner bottom -->
 
         <!-- blog list -->
-        <?php $this->load->view('site/blog_list.php'); ?>
+        <?php
+        $data['blogs'] = $blogs;
+        $this->load->view('site/blog_list.php',$data);
+        ?>
         <!-- ./blog list -->
     </div>
 </div>
