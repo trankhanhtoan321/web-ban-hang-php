@@ -75,6 +75,7 @@ if(!function_exists('rewrite_url'))
         'Ω'=>' ohm ',
         '♀'=>' female ', '♂'=>' male ',
         '©'=>' Copyright ', '®'=>' Registered ', '™' =>' Trademark ',
+        '%',
 
         'Đ'=>'D',
         'đ'=>'d',

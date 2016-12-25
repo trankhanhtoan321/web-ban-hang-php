@@ -59,6 +59,25 @@ class Blog_model extends CI_Model
 		if(count($result) == 1) return $result[0];
 		return FALSE;
 	}
+	public function get_all_list($blogcat_id)
+	{
+		$this->db->order_by('blog_time','DESC');
+		$result = $this->db->get('blogs');
+		$result = $result->result_array();
+		$data=array();
+		if(count($result)>0)
+		{
+			foreach($result as $temp)
+			{
+				$t = json_decode($temp['blog_cat_ids']);
+				if(is_array($t) && in_array($blogcat_id, $t))
+				{
+					$data[]=$temp;
+				}
+			}
+		}
+		return $data;
+	}
 	public function delete($blog_id)
 	{
 		if(is_array($blog_id))

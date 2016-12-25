@@ -204,7 +204,7 @@
                             if($dem>10) break;
                             $blogcat_temp = json_decode($blog_temp['blog_cat_ids']);
                             $kt=0;
-                            if(is_array($blogcat_temp))
+                            if(is_array($blogcat_temp) && is_array($blogcat_cur))
                             {
                                 foreach($blogcat_temp as $temp)
                                 {

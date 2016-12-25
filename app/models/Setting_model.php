@@ -13,7 +13,7 @@ class Setting_model extends CI_Model
 		foreach($temp as $t)
 			$this->data[$t['set_name']]=$t['set_value'];
 	}
-	public function update_data()
+	private function update_data()
 	{
 		$this->db->select('*');
 		$temp=$this->db->get('setting');
