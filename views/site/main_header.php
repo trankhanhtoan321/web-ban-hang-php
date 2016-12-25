@@ -4,9 +4,10 @@
             <a href="/"><img src="<?= $this->setting_model->get('logo'); ?>" /></a>
         </div>
         <div class="col-xs-7 col-sm-7 header-search-box">
-            <form class="form-inline">
+            <form class="form-inline" action="/search" method="post" >
+                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
                 <div class="form-group form-category">
-                    <select class="select-category">
+                    <select name="category" class="select-category">
                         <option value="0">All Categories</option>
                         <?php foreach($categorys as $cat){ ?>
                         <option value="<?= $cat['cat_id']; ?>"><?= $cat['cat_name']; ?></option>
@@ -14,7 +15,7 @@
                     </select>
                 </div>
                 <div class="form-group input-serach">
-                    <input type="text"  placeholder="Keyword here...">
+                    <input name="keyword" type="text"  placeholder="Keyword here...">
                 </div>
                 <button type="submit" class="pull-right btn-search"></button>
             </form>

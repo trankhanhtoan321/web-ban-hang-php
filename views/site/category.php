@@ -600,7 +600,7 @@
                                                         <a title="Quick view" class="search" href="#"></a>
                                                 </div> -->
                                                 <div class="add-to-cart">
-                                                    <a href="#add">Add to Cart</a>
+                                                    <a title="Add to Cart" href="/cart/addcart/<?= $product['pro_id']; ?>">Mua Ngay</a>
                                                 </div>
                                             </div>
                                             <div class="right-block">

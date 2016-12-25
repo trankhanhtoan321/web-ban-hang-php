@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','rewrite_url_helper');
+$autoload['helper'] = array('url','rewrite_url_helper','my_string_helper');
 
 /*
 | -------------------------------------------------------------------

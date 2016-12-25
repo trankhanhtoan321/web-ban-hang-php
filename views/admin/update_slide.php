@@ -11,6 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
          <div class="x_panel">
+            <div class="x_title">
+              <a class="btn btn-primary" href="/admin/slides">Back</a>
+            </div>
             <div class="x_content">
                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
                <div class="form-group">

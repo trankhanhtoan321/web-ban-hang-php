@@ -13,7 +13,7 @@ class Orderdt_model extends CI_Model
 			'orderdt_pro_id'=>$orderdt_pro_id,
 			'orderdt_qty'=>$orderdt_qty,
 			'orderdt_price'=>$orderdt_price,
-			'orderdt_orders_id'=>$orderdt_orders_id
+			'orderdt_order_id'=>$orderdt_orders_id
 			);
 		if($this->db->insert('orderdt',$data)) return TRUE;
 		return FALSE;

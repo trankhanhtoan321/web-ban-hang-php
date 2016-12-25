@@ -25,7 +25,7 @@
                                 <!-- product-imge-->
                                 <div class="product-image">
                                     <div class="product-full">
-                                        <img id="product-zoom" src='<?= $product['pro_image']; ?>' data-zoom-image="<?= $product['pro_image']; ?>"/>
+                                        <img id="product-zoom" src='<?= $product['pro_image']; ?>' data-zoom-image="<?=$product['pro_image']?>"/>
                                     </div>
                                     <!-- <div class="product-img-thumb" id="gallery_01">
                                         <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="21" data-loop="true">
@@ -105,7 +105,7 @@
                                             </ul>
                                         </div>
                                     </div> -->
-                                    <div class="attributes">
+                                    <!-- <div class="attributes">
                                         <div class="attribute-label">Qty:</div>
                                         <div class="attribute-list product-qty">
                                             <div class="qty">
@@ -120,7 +120,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="attributes">
                                         <div class="attribute-label">Size:</div>
                                         <div class="attribute-list">
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="form-action">
                                     <div class="button-group">
-                                        <a class="btn-add-cart" href="#">Add to cart</a>
+                                        <a class="btn-add-cart" title="Add to Cart" href="/cart/addcart/<?= $product['pro_id']; ?>">Mua Ngay</a>
                                     </div>
                                     <!-- <div class="button-group">
                                         <a class="wishlist" href="#"><i class="fa fa-heart-o"></i>
@@ -213,7 +213,7 @@
                                                         <a title="Quick view" class="search" href="#"></a>
                                                 </div> -->
                                                 <div class="add-to-cart">
-                                                    <a title="Add to Cart" href="#add">Add to Cart</a>
+                                                    <a title="Add to Cart" href="/cart/addcart/<?= $pro_temp['pro_id']; ?>">Mua Ngay</a>
                                                 </div>
                                             </div>
                                             <div class="right-block">
@@ -260,7 +260,7 @@
                                                         <a title="Quick view" class="search" href="#"></a>
                                                 </div> -->
                                                 <div class="add-to-cart">
-                                                    <a title="Add to Cart" href="#add">Add to Cart</a>
+                                                    <a title="Add to Cart" href="/cart/addcart/<?= $products[$rand]['pro_id']; ?>">Mua Ngay</a>
                                                 </div>
                                             </div>
                                             <div class="right-block">

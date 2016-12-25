@@ -512,7 +512,7 @@
                 <!-- view-product-list-->
                 <div id="view-product-list" class="view-product-list">
                     <h2 class="page-heading">
-                        <span class="page-heading-title">Kết quả</span>
+                        <span class="page-heading-title">Kết quả Tìm kiếm</span>
                     </h2>
                     <!-- <ul class="display-product-option">
                         <li class="view-as-grid selected">
@@ -524,48 +524,42 @@
                     </ul> -->
                     <!-- PRODUCT LIST -->
                     <ul class="row product-list  grid">
-                        <?php
-                        foreach($products as $product)
-                        {
-                            $temp = json_decode($product['pro_cat_ids']);
-                            if(in_array($category['cat_id'],$temp))
-                            {
-                                ?>
-                                <li class="col-sx-12 col-sm-3">
-                                    <div class="product-container">
-                                            <div class="left-block">
-                                                <a href="/<?= rewrite_url($product['pro_name']); ?>-<?= $product['pro_id']; ?>.html">
-                                                    <img class="img-responsive"  src="<?= $product['pro_image']; ?>" />
-                                                </a>
-                                                <!-- <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Add to compare" class="compare" href="#"></a>
-                                                        <a title="Quick view" class="search" href="#"></a>
-                                                </div> -->
-                                                <div class="add-to-cart">
-                                                    <a href="#add">Add to Cart</a>
-                                                </div>
-                                            </div>
-                                            <div class="right-block">
-                                                <h5 class="product-name"><a href="/<?= rewrite_url($product['pro_name']); ?>-<?= $product['pro_id']; ?>.html"><?= $product['pro_name']; ?></a></h5>
-                                                <!-- <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div> -->
-                                                <div class="content_price">
-                                                    <span class="price product-price"><?= $product['pro_price_sale']!=0?number_format($product['pro_price_sale']):number_format($product['pro_price']); ?> đ</span>
-                                                    <span class="price old-price"><?= $product['pro_price_sale']!=0?number_format($product['pro_price']).' đ':''; ?></span>
-                                                </div>
+                        <?php foreach($products as $product){ ?>
+                            <li class="col-sx-12 col-sm-3">
+                                <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="/<?= rewrite_url($product['pro_name']); ?>-<?= $product['pro_id']; ?>.html">
+                                                <img class="img-responsive"  src="<?= $product['pro_image']; ?>" />
+                                            </a>
+                                            <!-- <div class="quick-view">
+                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                    <a title="Add to compare" class="compare" href="#"></a>
+                                                    <a title="Quick view" class="search" href="#"></a>
+                                            </div> -->
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="/cart/addcart/<?= $product['pro_id']; ?>">Mua Ngay</a>
                                             </div>
                                         </div>
-                                </li>
-                                <?php
-                            }
-                        }
-                        ?>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="/<?= rewrite_url($product['pro_name']); ?>-<?= $product['pro_id']; ?>.html"><?= $product['pro_name']; ?></a></h5>
+                                            <!-- <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div> -->
+                                            <div class="content_price">
+                                                <span class="price product-price"><?= $product['pro_price_sale']!=0?number_format($product['pro_price_sale']):number_format($product['pro_price']); ?> đ</span>
+                                                <span class="price old-price"><?= $product['pro_price_sale']!=0?number_format($product['pro_price']).' đ':''; ?></span>
+                                            </div>
+                                            <div class="price-percent-reduction2">
+                                                -<?= (int)((($product['pro_price']-$product['pro_price_sale'])/$product['pro_price'])*100) ?>% OFF
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                        <?php } ?>
                     </ul>
                     <!-- ./PRODUCT LIST -->
                 </div>

@@ -214,7 +214,7 @@
                                             <span>(7 votes)</span>
                                         </div> -->
                                         <div class="entry-excerpt">
-                                            Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consecvtetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel.
+                                            <?= get_excerpt($blog['blog_content'],150); ?>
                                         </div>
                                         <div class="entry-more">
                                             <a href="/blog/<?= rewrite_url($blog['blog_name']); ?>-<?= $blog['blog_id']; ?>.html">Xem Tiếp</a>

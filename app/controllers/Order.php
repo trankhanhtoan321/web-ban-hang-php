@@ -33,6 +33,7 @@ class Order extends CI_Controller {
 						$orderdt_qty = $item['qty'];
 						$orderdt_price = $item['price'];
 						$this->orderdt_model->insert($orderdt_pro_id,$orderdt_qty,$orderdt_price,$orderdt_orders_id);
+						$this->products_model->increase($orderdt_pro_id,'pro_buys');
 					}
 					$this->cart->destroy();
 					redirect('/order/success','refresh');

@@ -12,6 +12,7 @@ class Product extends CI_Controller {
 	public function index($pro_id=0)
 	{
 		if($pro_id==0) redirect('/','refresh');
+		$this->products_model->increase($pro_id,'pro_views');
 		$data['_varibles']['product'] = $this->products_model->get($pro_id);
 
 		$data['_varibles']['SEO_title'] = $data['_varibles']['product']['pro_seo_title'];

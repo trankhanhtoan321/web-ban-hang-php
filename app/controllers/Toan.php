@@ -9,8 +9,6 @@ class Toan extends CI_Controller {
 	}
 	public function index()
 	{
-		echo '<pre>';
-		print_r($this->toan_model->search('Maecenas consequat mauris',NULL,"DESC"));
-		echo '</pre>';
+		echo strip_tags("<a>sdlfjdklf<br/><h1>111</a>");
 	}
 }
